@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <h2>额度查询</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>贷款额度</th>
+            <th>审批状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for loan in loans %}
+            <tr>
+                <td>{{ loan.name }}</td>
+                <td>{{ loan.loan_amount }}</td>
+                <td>
+                    {% if loan.status == 'pending' %}
+                        待审核
+                    {% elif loan.status == 'approved' %}
+                        已通过
+                    {% elif loan.status == 'rejected' %}
+                        未通过
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="https://www.abchina.com/cn/RuralSvc/Individuals/MicroCredit/default.htm" class="btn btn-primary">取款</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

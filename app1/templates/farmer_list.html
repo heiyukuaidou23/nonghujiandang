@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+<style>
+    .boxed {
+        border: 1px solid blue; /* 边框样式 */
+        padding: 5px; /* 内边距 */
+        display: inline-block; /* 将 span 标签显示为块级元素，以适用于边框 */
+    }
+</style>
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">基本信息填报</h5>
+                    <p class="card-text">填写农户的姓名、身份证号、性别，手机号码等。</p><br>
+                    <a href="/farmer_information/" class="btn btn-primary">开始填报</a>
+                    <a href="/farmer/3/edit/" class="btn btn-success">查看与修改</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">家庭信息填报</h5>
+                    <p class="card-text">填写农户姓名，与户主关系、身份证号、联系方式。</p><br>
+                    <a href="/farmer/3/family_info/" class="btn btn-primary">开始填报</a>
+                    <a href="/family/info/view/" class="btn btn-success">查看</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">家庭收支信息</h5>
+                    <p class="card-text">填写劳动人口、供养人口、家庭年收入等。</p><br>
+                    <a href="/family/3/finance/" class="btn btn-primary">开始填报</a>
+                    <a href="/farmer/3/edit/income-expense/" class="btn btn-success">查看与修改</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body"><br>
+                    <h5 class="card-title">资产负债情况</h5>
+                    <p class="card-text">填写家中资产的情况。</p><br>
+                    <a href="/add/3/asset/liability/" class="btn btn-primary">开始填报</a>
+                    <a href="/edit/3/asset/liability/" class="btn btn-success">查看与修改</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

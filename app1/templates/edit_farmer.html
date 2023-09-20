@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>农户基本信息修改</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/back.css' %}">
+
+</head>
+<body>
+<div class="container">
+    <button class="back" onclick="goBack()">返回</button>
+
+    <h1>编辑农户信息</h1>
+
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">户主姓名</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="id_id_number">身份证号</label>
+            {{ form.id_number }}
+        </div>
+        <div class="form-group">
+            <label for="id_gender">性别</label>
+            {{ form.gender }}
+        </div>
+        <div class="form-group">
+            <label for="id_phone_number">手机号码</label>
+            {{ form.phone_number }}
+        </div>
+        <div class="form-group">
+            <label for="id_is_local_resident">本地是否常住</label>
+            <select class="form-control" id="id_is_local_resident" name="is_local_resident">
+                <option value="true" {% if form.is_local_resident.value == 'true' %}selected{% endif %}>是</option>
+                <option value="false" {% if form.is_local_resident.value == 'false' %}selected{% endif %}>否</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_local_residence_years">本地居住年限</label>
+            {{ form.local_residence_years }}
+        </div>
+        <div class="form-group">
+            <label for="id_political_status">政治面貌</label>
+            {{ form.political_status }}
+        </div>
+        <div class="form-group">
+            <label for="id_occupation">个人职业</label>
+            {{ form.occupation }}
+        </div>
+        <div class="form-group">
+            <label for="id_health_condition">健康状况</label>
+            {{ form.health_condition }}
+        </div>
+        <div class="form-group">
+            <label for="id_personal_qualities">个人品质</label>
+            {{ form.personal_qualities }}
+        </div>
+        <div class="form-group">
+            <label for="id_marital_status">婚姻状况</label>
+            {{ form.marital_status }}
+        </div>
+        <div class="form-group">
+            <label for="id_education_level">文化程度</label>
+            {{ form.education_level }}
+        </div>
+        <div class="form-group">
+            <label for="id_region">所属区域</label>
+            {{ form.region }}
+        </div>
+        <div class="form-group">
+            <label for="id_status">状态</label>
+            {{ form.status }}
+        </div>
+        <div class="form-group">
+            <button type="submit">保存</button>
+        </div>
+    </form>
+</div>
+<script>
+    function goBack() {
+        history.back();
+    }
+</script>
+</body>
+</html>

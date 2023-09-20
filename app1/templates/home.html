@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">欢迎进入农户建档系统</h1>
+            <p class="lead">你好, {{ request.session.info.name }}! 这是你的主页！</p>
+            <p class="lead">请选择相应的模块进行操作!</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">个人信息填报</h5>
+                        <p class="card-text">填写农户的基本信息、家庭信息、家庭收支信息、资产负债情况等。</p>
+                        <a href='/farmer/list/' class="btn btn-primary">开始填报</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">经营信息填报</h5>
+                        <p class="card-text">填写农户的企业名称、生产经营周期、获奖情况、农业补贴等。</p>
+                        <a href='/add/3/business/info/' class="btn btn-primary">开始填报</a>
+                        <a href='/edit/3/business/info/' class="btn btn-success">查看</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">贷款授信查看</h5>
+                        <p class="card-text">查看银行客户经理审批的贷款金额。</p><br>
+                        <a href="/add/3/loan/" class="btn btn-primary">申请贷款</a>
+                        <a href="/view/loan/" class="btn btn-success">查看审批状态与额度</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>注册</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 0;
+        }
+
+        .btn-primary {
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .text-center {
+            margin-top: 20px;
+        }
+
+        .text-center a {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center">农户注册</h2>
+    <form method="post" action="{% url 'register' %}" class="register-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_username">用户名</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <label for="id_password">密码</label>
+            {{ form.password }}
+        </div>
+        <button type="submit" class="btn btn-primary">注册</button>
+    </form>
+    <p class="text-center">已有账号？<a href="/login">点击这里登录</a></p>
+</div>
+</body>
+</html>
